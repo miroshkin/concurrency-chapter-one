@@ -9,10 +9,11 @@ namespace Concurrency_ChapterOne
         {
             Console.WriteLine("Concurrency - Chapter One!");
             
-            Thread thread = new Thread(PrintNumbersWithDelay);
-            thread.Start();
-
-            PrintNumbers();
+            Console.WriteLine("Starting...");
+            Thread t = new Thread(PrintNumbersWithDelay);
+            t.Start();
+            t.Join();
+            Console.WriteLine("Thread completed");
         }
 
         static void PrintNumbers()
